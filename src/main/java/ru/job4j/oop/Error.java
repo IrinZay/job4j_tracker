@@ -28,4 +28,5 @@ public class Error {
         Error error404 = new Error();
         error404.showInfo();
     }
+
 }
