@@ -31,4 +31,13 @@ class PointTest {
         double expected = 4;
         assertEquals(expected, rsl);
     }
+
+    @Test
+    void when000And044Then() {
+        Point a = new Point(0,0,0);
+        Point b = new Point(0, 4,4);
+        double rsl = a.distance3d(b);
+        double expected = 5.6;
+        assertEquals(expected, rsl, 0.1);
+    }
 }
