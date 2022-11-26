@@ -29,7 +29,7 @@ public class Computer {
         Computer computer = new Computer(true, 500, "Intel Core I7-10700K");
         computer.printInfo();
         System.out.println();
-        Computer comp = new Computer( 256, "AMD Ryzen 5 3600");
+        Computer comp = new Computer(256, "AMD Ryzen 5 3600");
         comp.printInfo();
         System.out.println();
         Computer computer1 = new Computer();
