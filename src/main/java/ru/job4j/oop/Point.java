@@ -14,7 +14,6 @@ public class Point {
         this.y = second;
     }
 
-
     public Point(int first, int second, int third) {
         this.x = first;
         this.y = second;
