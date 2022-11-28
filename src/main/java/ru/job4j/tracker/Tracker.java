@@ -24,14 +24,14 @@ public class Tracker {
 
     public Item[] findByName(String key) {
         Item[] rsl = new Item[size];
-        int rslSize = 0;
+        int count = 0;
         for (int i = 0; i < size; i++) {
             if (key.equals(items[i].getName())) {
-                rsl[rslSize] = items[i];
-                rslSize++;
+                rsl[count] = items[i];
+                count++;
             }
         }
-        return Arrays.copyOf(rsl, rslSize);
+        return Arrays.copyOf(rsl, count);
     }
 
     private int indexOf(int id) {
@@ -50,8 +50,8 @@ public class Tracker {
         if (index == -1) {
             return false;
         }
-        items[index] = item;
         item.setId(id);
+        items[index] = item;
         return true;
     }
 
@@ -60,8 +60,7 @@ public class Tracker {
         if (index == -1) {
             return false;
         }
-        int length = size - index - 1;
-        System.arraycopy(items, index + 1, items, index, length);
+        System.arraycopy(items, index + 1, items, index, size - index - 1);
         items[size - 1] = null;
         size--;
         return true;
