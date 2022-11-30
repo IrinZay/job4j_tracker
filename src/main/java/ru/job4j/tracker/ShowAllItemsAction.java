@@ -26,5 +26,4 @@ public class ShowAllItemsAction implements UserAction {
         }
         return true;
     }
-
 }
