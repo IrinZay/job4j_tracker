@@ -71,7 +71,7 @@ public class StartUITest {
                         + "0. Edit item" + ln
                         + "1. Exit Program" + ln
                         + "Edit item" + ln
-                        + "Заявка заменена успешно." + ln
+                        + "Р—Р°СЏРІРєР° Р·Р°РјРµРЅРµРЅР° СѓСЃРїРµС€РЅРѕ." + ln
                         + "Menu." + ln
                         + "0. Edit item" + ln
                         + "1. Exit Program" + ln
@@ -94,7 +94,7 @@ public class StartUITest {
                         + "0. Show all items" + ln
                         + "1. Exit Program" + ln
                         + "Show all items" + ln
-                        + "Хранилище ещё не содержит заявок." + ln
+                        + "РҐСЂР°РЅРёР»РёС‰Рµ РµС‰С‘ РЅРµ СЃРѕРґРµСЂР¶РёС‚ Р·Р°СЏРІРѕРє" + ln
                         + "Menu." + ln
                         + "0. Show all items" + ln
                         + "1. Exit Program" + ln
@@ -149,5 +149,4 @@ public class StartUITest {
                         + "Exit Program" + ln
         );
     }
-
 }
