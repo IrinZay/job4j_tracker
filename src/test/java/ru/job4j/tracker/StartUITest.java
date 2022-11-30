@@ -1,8 +1,7 @@
 package ru.job4j.tracker;
 
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class StartUITest {
     @Test
@@ -12,7 +11,7 @@ public class StartUITest {
         Tracker tracker = new Tracker();
         UserAction[] actions = {new CreateAction(output), new ExitAction(output)};
         new StartUI(output).init(in, tracker, actions);
-        assertEquals(tracker.findAll()[0].getName(), "Item name");
+        assertThat(tracker.findAll()[0].getName()).isEqualTo("Item name");
     }
 
     @Test
@@ -25,7 +24,7 @@ public class StartUITest {
         Input in = new StubInput(new String[]{"0", String.valueOf(id), replacedName, "1"});
         UserAction[] actions = {new EditAction(output), new ExitAction(output)};
         new StartUI(output).init(in, tracker, actions);
-        assertEquals(tracker.findById(id).getName(), replacedName);
+        assertThat(tracker.findById(id).getName()).isEqualTo("New Item Name");
     }
 
     @Test
@@ -37,7 +36,7 @@ public class StartUITest {
         Input in = new StubInput(new String[]{"0", String.valueOf(id), "1"});
         UserAction[] actions = {new DeleteAction(output), new ExitAction(output)};
         new StartUI(output).init(in, tracker, actions);
-        assertNull(tracker.findById(id));
+        assertThat(tracker.findById(id)).isNull();
     }
 
     @Test
@@ -47,7 +46,7 @@ public class StartUITest {
         Tracker tracker = new Tracker();
         UserAction[] action = {new ExitAction(output)};
         new StartUI(output).init(input, tracker, action);
-        assertEquals(output.toString(), "Menu." + System.lineSeparator()
+        assertThat(output.toString()).isEqualTo("Menu." + System.lineSeparator()
                 + "0. Exit Program" + System.lineSeparator());
     }
 }
