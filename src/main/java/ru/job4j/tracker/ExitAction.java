@@ -17,4 +17,5 @@ public class ExitAction implements UserAction {
         output.println(name());
         return false;
     }
+
 }
