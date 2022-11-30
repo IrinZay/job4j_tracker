@@ -71,7 +71,7 @@ public class StartUITest {
                         + "0. Edit item" + ln
                         + "1. Exit Program" + ln
                         + "Edit item" + ln
-                        + "Заявка изменена успешно." + ln
+                        + "Заявка заменена успешно." + ln
                         + "Menu." + ln
                         + "0. Edit item" + ln
                         + "1. Exit Program" + ln
@@ -94,7 +94,7 @@ public class StartUITest {
                         + "0. Show all items" + ln
                         + "1. Exit Program" + ln
                         + "Show all items" + ln
-                        + "Хранилище еще не содержит заявок." + ln
+                        + "Хранилище ещё не содержит заявок." + ln
                         + "Menu." + ln
                         + "0. Show all items" + ln
                         + "1. Exit Program" + ln
