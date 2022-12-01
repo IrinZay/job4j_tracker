@@ -6,7 +6,7 @@ public final class SingleTracker {
     private SingleTracker() {
     }
 
-    public static Item add(Item item){
+    public static Item add(Item item) {
         return tracker.add(item);
     }
 
