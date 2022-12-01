@@ -2,16 +2,17 @@ package ru.job4j.ex;
 
 public class UserStore {
     public static User findUser(User[] users, String login) throws UserNotFoundException {
-        int index = -1;
-        for (int i = 0; i < users.length; i++) {
-            if (login.equals(users[i].getUsername())) {
-                index = i;
+        User founded = null;
+        for (User user : users) {
+            if (login.equals(user.getUsername())) {
+                founded = user;
+                break;
             }
         }
-        if (index == -1) {
+        if (founded == null) {
             throw new UserNotFoundException("User not found.");
         }
-        return users[index];
+        return founded;
     }
 
     public static boolean validate(User user) throws UserInvalidException {
