@@ -10,19 +10,38 @@ public class PasswordValidator {
             throw new IllegalArgumentException(
                     "Password should be length [8, 32]");
         }
-        if (!hasUpperCaseLetter(password)) {
-            throw new IllegalArgumentException(
-                    "Password should contain at least one uppercase letter");
+        int digit = 0;
+        int lowerCase = 0;
+        int upperCase = 0;
+        int specialSymbol = 0;
+        for (char pass: password.toCharArray()) {
+            if (Character.isDigit(pass)) {
+                digit ++;
+            }
+            if (Character.isLowerCase(pass)) {
+                lowerCase++;
+            }
+            if (Character.isUpperCase(pass)) {
+                upperCase++;
+            }
+            if (!Character.isDigit(pass) && !Character.isLetter(pass)
+                    && !Character.isWhitespace(pass)) {
+                specialSymbol++;
+            }
         }
-        if (!hasLowerCaseLetter(password)) {
-            throw new IllegalArgumentException(
-                    "Password should contain at least one lowercase letter");
-        }
-        if (!hasFigure(password)) {
+        if (digit == 0) {
             throw new IllegalArgumentException(
                     "Password should contain at least one figure");
         }
-        if (!hasSpecialSymbol(password)) {
+        if (lowerCase == 0) {
+            throw new IllegalArgumentException(
+                    "Password should contain at least one lowercase letter");
+        }
+        if (upperCase == 0) {
+            throw new IllegalArgumentException(
+                    "Password should contain at least one uppercase letter");
+        }
+        if (specialSymbol == 0) {
             throw new IllegalArgumentException(
                     "Password should contain at least one special symbol");
         }
@@ -34,43 +53,6 @@ public class PasswordValidator {
         return password;
     }
 
-    private static boolean hasUpperCaseLetter(String password) {
-        for (int i = 0; i < password.length() - 1; i++) {
-            if (Character.isUpperCase(password.charAt(i))) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    private static boolean hasLowerCaseLetter(String password) {
-        for (int i = 0; i < password.length() - 1; i++) {
-            if (Character.isLowerCase(password.charAt(i))) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    private static boolean hasFigure(String password) {
-        for (int i = 0; i < password.length() - 1; i++) {
-            if (Character.isDigit(password.charAt(i))) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    private static boolean hasSpecialSymbol(String password) {
-        for (int i = 0; i < password.length() - 1; i++) {
-            if (!Character.isDigit(password.charAt(i)) && !Character.isLetter(password.charAt(i))
-                && !Character.isWhitespace(password.charAt(i))) {
-                return true;
-            }
-        }
-        return false;
-    }
-
     private static boolean hasSubstring(String password) {
         String[] substring = {"qwerty", "12345", "password", "admin", "user"};
         for (String s : substring) {
@@ -80,5 +62,4 @@ public class PasswordValidator {
         }
         return false;
     }
-
 }
