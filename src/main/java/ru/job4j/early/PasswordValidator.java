@@ -16,7 +16,7 @@ public class PasswordValidator {
         int specialSymbol = 0;
         for (char pass: password.toCharArray()) {
             if (Character.isDigit(pass)) {
-                digit ++;
+                digit++;
             }
             if (Character.isLowerCase(pass)) {
                 lowerCase++;
