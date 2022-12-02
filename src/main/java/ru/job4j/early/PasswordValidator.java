@@ -20,17 +20,11 @@ public class PasswordValidator {
             }
             if (Character.isDigit(pass)) {
                 digit = true;
-                continue;
-            }
-            if (Character.isLowerCase(pass)) {
+            } else if (Character.isLowerCase(pass)) {
                 lowerCase = true;
-                continue;
-            }
-            if (Character.isUpperCase(pass)) {
+            }else if (Character.isUpperCase(pass)) {
                 upperCase = true;
-                continue;
-            }
-            if (!Character.isDigit(pass) && !Character.isLetter(pass)
+            } else if (!Character.isDigit(pass) && !Character.isLetter(pass)
                     && !Character.isWhitespace(pass)) {
                 specialSymbol = true;
             }
