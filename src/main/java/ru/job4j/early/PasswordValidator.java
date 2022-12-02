@@ -22,7 +22,7 @@ public class PasswordValidator {
                 digit = true;
             } else if (Character.isLowerCase(pass)) {
                 lowerCase = true;
-            }else if (Character.isUpperCase(pass)) {
+            } else if (Character.isUpperCase(pass)) {
                 upperCase = true;
             } else if (!Character.isDigit(pass) && !Character.isLetter(pass)
                     && !Character.isWhitespace(pass)) {
