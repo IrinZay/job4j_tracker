@@ -10,38 +10,44 @@ public class PasswordValidator {
             throw new IllegalArgumentException(
                     "Password should be length [8, 32]");
         }
-        int digit = 0;
-        int lowerCase = 0;
-        int upperCase = 0;
-        int specialSymbol = 0;
+        boolean digit = false;
+        boolean lowerCase = false;
+        boolean upperCase = false;
+        boolean specialSymbol = false;
         for (char pass: password.toCharArray()) {
+            if (digit && lowerCase && upperCase && specialSymbol){
+                break;
+            }
             if (Character.isDigit(pass)) {
-                digit++;
+                digit = true;
+                continue;
             }
             if (Character.isLowerCase(pass)) {
-                lowerCase++;
+                lowerCase = true;
+                continue;
             }
             if (Character.isUpperCase(pass)) {
-                upperCase++;
+                upperCase = true;
+                continue;
             }
             if (!Character.isDigit(pass) && !Character.isLetter(pass)
                     && !Character.isWhitespace(pass)) {
-                specialSymbol++;
+                specialSymbol = true;
             }
         }
-        if (digit == 0) {
+        if (!digit) {
             throw new IllegalArgumentException(
                     "Password should contain at least one figure");
         }
-        if (lowerCase == 0) {
+        if (!lowerCase) {
             throw new IllegalArgumentException(
                     "Password should contain at least one lowercase letter");
         }
-        if (upperCase == 0) {
+        if (!upperCase) {
             throw new IllegalArgumentException(
                     "Password should contain at least one uppercase letter");
         }
-        if (specialSymbol == 0) {
+        if (!specialSymbol) {
             throw new IllegalArgumentException(
                     "Password should contain at least one special symbol");
         }
