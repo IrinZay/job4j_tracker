@@ -58,7 +58,7 @@ public class Tracker {
         int index = indexOf(id);
         boolean rsl = index != -1;
         if (rsl) {
-            items.remove(size - 1);
+            items.remove(index);
             size--;
         }
         return rsl;
