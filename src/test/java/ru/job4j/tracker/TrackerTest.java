@@ -2,6 +2,8 @@ package ru.job4j.tracker;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class TrackerTest {
@@ -31,8 +33,8 @@ public class TrackerTest {
         Item second = new Item("Second");
         tracker.add(first);
         tracker.add(second);
-        Item result = tracker.findAll()[0];
-        assertEquals(first.getName(), result.getName());
+        List<Item> result = tracker.findAll();
+        assertEquals(first.getName(), result.get(0).getName());
     }
 
     @Test
@@ -45,8 +47,8 @@ public class TrackerTest {
         tracker.add(new Item("First"));
         tracker.add(new Item("Second"));
         tracker.add(new Item("First"));
-        Item[] result = tracker.findByName(first.getName());
-        assertEquals(result.length, 3);
+        List<Item> result = tracker.findByName(first.getName());
+        assertEquals(result.size(), 3);
     }
 
     @Test
@@ -59,8 +61,8 @@ public class TrackerTest {
         tracker.add(new Item("First"));
         tracker.add(new Item("Second"));
         tracker.add(new Item("First"));
-        Item[] result = tracker.findByName(second.getName());
-        assertEquals(result[1].getName(), second.getName());
+        List<Item> result = tracker.findByName(second.getName());
+        assertEquals(result.get(1).getName(), second.getName());
     }
 
     @Test
