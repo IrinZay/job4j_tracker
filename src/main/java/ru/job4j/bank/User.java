@@ -36,7 +36,7 @@ public class User {
             return false;
         }
         User user = (User) o;
-        return Objects.equals(passport, user.passport) && Objects.equals(username, user.username);
+        return Objects.equals(passport, user.passport);
     }
 
     @Override
