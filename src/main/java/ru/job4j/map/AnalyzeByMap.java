@@ -63,11 +63,7 @@ public class AnalyzeByMap {
         for (Pupil student : pupils) {
             for (Subject subject : student.subjects()) {
                 String name = subject.name();
-                int score = subject.score();
-                if (subjectMap.containsKey(name)) {
-                    score = subjectMap.get(name) + subject.score();
-                }
-                subjectMap.put(name, score);
+                subjectMap.put(name, subjectMap.getOrDefault(name, 0) + subject.score());
             }
         }
         for (Map.Entry<String, Integer> entry : subjectMap.entrySet()) {
