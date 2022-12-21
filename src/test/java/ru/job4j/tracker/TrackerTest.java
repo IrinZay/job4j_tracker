@@ -2,6 +2,7 @@ package ru.job4j.tracker;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.Arrays;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -107,5 +108,27 @@ public class TrackerTest {
         boolean result = tracker.delete(1000);
         assertThat("Bug").isEqualTo(tracker.findById(item.getId()).getName());
         assertThat(result).isFalse();
+    }
+
+    @Test
+    public void whenItemSortedByName() {
+        Item first = new Item("first", 1);
+        Item second = new Item("second", 2);
+        Item third = new Item("third", 3);
+        List<Item> tracker = Arrays.asList(third, second, first);
+        tracker.sort(new ItemAscByName());
+        List<Item> expected = Arrays.asList(first, second, third);
+    assertThat(expected).isEqualTo(tracker);
+    }
+
+    @Test
+    public void whenItemDescSortedByName() {
+        Item first = new Item("first", 1);
+        Item second = new Item("second", 2);
+        Item third = new Item("third", 3);
+        List<Item> tracker = Arrays.asList(first, second, third);
+        tracker.sort(new ItemDescByName());
+        List<Item> expected = Arrays.asList(third, second, first);
+        assertThat(expected).isEqualTo(tracker);
     }
 }
