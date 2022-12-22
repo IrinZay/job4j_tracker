@@ -14,8 +14,7 @@ public class AppleStore {
     public String getLastHappyCustomer() {
         String rsl = "";
         for (int i = 0; i < count; i++) {
-            rsl = queue.element().name();
-            queue.poll();
+            rsl = queue.poll().name();
         }
         return rsl;
     }
@@ -23,8 +22,7 @@ public class AppleStore {
     public String getLastUpsetCustomer() {
         String rsl = "";
         for (int i = 0; i < count + 1; i++) {
-            rsl = queue.element().name();
-            queue.poll();
+            rsl = queue.poll().name();
         }
         return rsl;
     }
