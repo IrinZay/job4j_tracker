@@ -12,6 +12,7 @@ public class ReconstructPhrase {
         this.descendingElements = descendingElements;
         this.evenElements = evenElements;
     }
+
     private String getEvenElements() {
         StringBuilder rsl = new StringBuilder();
         int size = evenElements.size();
