@@ -86,6 +86,7 @@ public class Account {
 
         return Objects.equals(requisite, account.requisite);
     }
+
     /**
      * Переопределенный метод hasCode.
      * @return - возвращает hashCode для
