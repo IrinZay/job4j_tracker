@@ -12,11 +12,9 @@ public class Departments {
     public static List<String> fillGaps(List<String> deps) {
         Set<String> tmp = new LinkedHashSet<>();
         for (String value : deps) {
-            String start = value.split("/")[0];
+            String start = "";
             for (String el : value.split("/")) {
-                if (el.toLowerCase().startsWith("s")) {
-                    start = start + "/" + el;
-                }
+                start += "".equals(start) ? el : "/" + el;
                 tmp.add(start);
             }
         }
