@@ -18,9 +18,10 @@ public class PhoneDictionary {
         Predicate<Person> combine = predName.or(predPhone).or(predSurname).or(predAddress);
         ArrayList<Person> result = new ArrayList<>();
         for (Person person : persons) {
-            if (combine.test(person))
+            if (combine.test(person)) {
                 result.add(person);
             }
+        }
         return result;
     }
 }
