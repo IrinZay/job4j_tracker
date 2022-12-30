@@ -10,14 +10,14 @@ public class FunctionalInterfaces {
     public static void main(String[] args) {
         Map<Integer, String> map = new HashMap<>();
         List<String> list = List.of("one", "two", "three", "four", "five", "six", "seven");
-        BiConsumer<Integer, String> biCon = (i, s1) -> map.put(i, s1);
+        BiConsumer<Integer, String> biCon = (i, s) -> map.put(i, s);
         int i = 1;
         for (String s : list) {
             biCon.accept(i++, s);
         }
         System.out.println(map);
 
-        BiPredicate<Integer, String> biPred = (j, s1) -> (j % 2 == 0 || s1.length() == 4);
+        BiPredicate<Integer, String> biPred = (j, s) -> (j % 2 == 0 || s.length() == 4);
         for (Integer j : map.keySet()) {
             if (biPred.test(j, map.get(j))) {
                 System.out.println("key: " + j + " value: " + map.get(j));
