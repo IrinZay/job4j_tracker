@@ -10,7 +10,7 @@ public class StudentLevel {
         return students.stream()
                 .flatMap(Stream::ofNullable)
                 .sorted((left, right) -> right.getScore() - left.getScore())
-                .takeWhile(st -> st.getScore() > bound )
+                .takeWhile(st -> st.getScore() > bound)
                 .collect(Collectors.toList());
     }
 }
