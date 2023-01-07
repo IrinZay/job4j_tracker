@@ -6,9 +6,9 @@ public class Subject {
     private String name;
     private int score;
 
-    public Subject(String name, int scope) {
+    public Subject(String name, int score) {
         this.name = name;
-        this.score = scope;
+        this.score = score;
     }
 
     public String getName() {
